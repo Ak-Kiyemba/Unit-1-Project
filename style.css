@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Permanent+Marker&display=swap');
+
+* {
+    font-family:'Kdam Thmor Pro', sans-serif;
+
+
+
+}
+
+#heading{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 120px;
+}
+h1 {
+    display: block;
+}
+hr {
+    color: grey;
+    margin-top: 0;
+}
+
+#nav-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.nav-items  {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+img {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: start;
+}
+
+
+#container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto ;
+    grid-template-rows: auto auto auto auto auto;
+    justify-content: center;
+    height: 50px;
+    gap: 7px;
+    margin-bottom: 500px;
+    
+}
+
+.boxes {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: white;
+    padding: 10px;
+    font-size:20px;
+    text-align: center;
+    border: 1px solid grey;
+/* adjust width for game */
+    height: 30px;
+    width: 40px;
+}
+
+#keyboard{
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-items: end;
+    text-align: center;
+    margin: 0 auto;
+    width: 500px;
+
+    
+    
+}
+
+#row-1 {
+    display: grid;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 7px;
+    text-align: center;
+    align-content: end;
+    margin-bottom: 3px;
+}
+
+#row-2{
+    display: grid;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 7px;
+    text-align: center;
+    align-content: end; 
+    margin-bottom: 3px;
+    margin-left: 15px;
+}
+
+#row-3{
+    display: grid;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 7px;
+    text-align: center;
+    align-content: end; 
+    margin-left: 25px;
+}
+
