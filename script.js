@@ -10,82 +10,116 @@ let words = ["aback", "abase", "abate", "abbey", "abbot", "abhor", "abide", "abl
 // 6-  run the program when the user presses the enter key 
 // 7- receive information from keyboard input 
 
+//- Array that shows userinput 
+// for loop over rows and i++ wilst also adding content in each box
+
+1.  // keys interact with rows
+2. // pushing into user array 
+3. // 
+
 
 
 let rowNumber = 0
-
+const secretWord = 'SHEEN'
 
 const body = document.getElementById('body')
 const heading = document.getElementById('heading')
 const boxes = document.querySelectorAll('boxes')
-let keyboardInput = document.addEventListener('keyboardEvent', (event) => console.log(event))
-const keys = document.querySelectorAll('keys')
+// let keyboardInput = document.addEventListener('keyboardEvent', (event) => console.log(event))
+const keys = document.querySelectorAll('.keys')
 const row = document.getElementById('heading')
-
-function worlde() {
-    for (const word of words) {
-        // if word is spelt correctly &  the letters are in the correct position  (grids should be green)
-        if (word.match(words) === keyboardInput && keyboardInput === word &&  word === words) {
-            console.log(word)
-            //   keys.style.backgroundColor= 'green' ( identify how to select just that single row )
-            // keys.textContent = keyboardInput
-        } else if (keyboardInput != word && word != words) {
-            checkLetterPosition()
-        } else if (keyboardInput[i] != words.match(/a-z/gi)) {
-            CheckIfLetterIsInTheWord()
-        } else {
-            return keys.textContent = keyboardInput
-        }
-    }
-    function checkLetterPosition() {
-        // - else if 
-        // if a letter is  in a word but in the wrong place (grid colour yelllow)
-        for (let i = 0; keyboardInput.length; i++) {
-          if (keyboardInput != word.match(words)){
-              let results = keyboardInputi[i].value
-           // keys.style.backgroundColor= 'yellow'
-           //identify how to get the program to jump to the next row
-
-            }
-        }
-    }
+const section1 = document.getElementById('section-1')
+const letters = section1.querySelectorAll('div')
+let letterPosition = 0
 
 
-    function CheckIfLetterIsInTheWord() {
-        // - else if 
-        // if the letter is not in the word (grid color gray)
-        for (let i = 0; keyboardInput.length; i++) {
-            
-        //   keys.style.backgroundColor= 'grey'
-        // 
-    }
+
+console.log(keys)
+
+
+function Rows() {
 
 }
+
+
+
+function checkingUserAction(e) {
+    const valueClikced = e.target.innerText.toUpperCase()
+    console.log(valueClikced)
+    if (valueClikced === 'DEL') {
+        if (letterPosition > 0) {
+            letterPosition--
+            letters[letterPosition].textContent = ' '
+        }
+    } else if (valueClikced === 'ENT') {
+        const userLetters = letters[0].textContent + letters[1].textContent + letters[2].textContent + letters[3].textContent + letters[4].textContent
+
+        // loop this section
+        if (letters[0].textContent === secretWord[0]) {
+            letters[0].style.backgroundColor = 'green'
+        }
+        if (letters[1].textContent === secretWord[1]) {
+            letters[1].style.backgroundColor = 'green'
+        }
+        if (letters[2].textContent === secretWord[2]) {
+            letters[2].style.backgroundColor = 'green'
+        }
+        if (letters[3].textContent === secretWord[3]) {
+            letters[3].style.backgroundColor = 'green'
+        }
+        if (letters[4].textContent === secretWord[4]) {
+            letters[4].style.backgroundColor = 'green'
+        }
+
+
+        if (letters[0].textContent != secretWord[0]) {
+            letters[0].style.backgroundColor = 'yellow'
+        }
+        if (letters[1].textContent != secretWord[1]) {
+            letters[1].style.backgroundColor = 'yellow'
+        }
+        if (letters[2].textContent != secretWord[2]) {
+            letters[2].style.backgroundColor = 'yellow'
+        }
+        if (letters[3].textContent != secretWord[3]) {
+            letters[3].style.backgroundColor = 'yellow'
+        }
+        if (letters[4].textContent != secretWord[4]) {
+            letters[4].style.backgroundColor = 'yellow'
+        }
+
+
+        
+
+       
+
+    } else if (letterPosition < 5) {
+        letters[letterPosition].textContent = valueClikced
+        letterPosition++
     }
+}
 
 
-// // function remove () {
-// //    keys.textContent = " "
-// // }
-// // keybkeyboardInput.addEventListener('keypress',function() ) {
-// //     //     if (enter key ios pressed)
-//     // run wordle() function
-// // }
-                              
 
-// // keybkeyboardInput.addEventListener('keypress',function() ) {
-//     //     //     if (delete is clicked)
-//         // run remove() function
-//     // }
+// for (const word of words) {
+//     // if word is spelt correctly &  the letters are in the correct position  (grids should be green)
+//     if (word.match(words) === keyboardInput && keyboardInput === word &&  word === words) {
+//         console.log(word)
+//         //   keys.style.backgroundColor= 'green' ( identify how to select just that single row )
+//         // keys.textContent = keyboardInput
+//     } else if (keyboardInput != word && word != words) {
+//         checkLetterPosition()
+//     } else if (keyboardInput[i] != words.match(/a-z/gi)) {
+//         CheckIfLetterIsInTheWord()
+//     } else {
+//         return keys.textContent = keyboardInput
+//     }
+// }
+// }
 
 
-//                                                                     // questions //
+keys.forEach((key) => {
+    key.addEventListener('click', checkingUserAction)
+})
 
-//  // - how to assign a number to each individual grid
-//  // how to get the keyboardInput to be added to the grid 1 column 1 and continues gowing left to right
 
-//  //- check if im understanding the methods i have reviewed correctly
-
-//  // identify the index value for the grid boxes 
-
-//  // am i using the keyboard method correctly
