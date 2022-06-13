@@ -12,36 +12,38 @@ let words = ["aback", "abase", "abate", "abbey", "abbot", "abhor", "abide", "abl
 
 
 
-
+let rowNumber = 0
 
 
 const body = document.getElementById('body')
 const heading = document.getElementById('heading')
 const boxes = document.querySelectorAll('boxes')
-const keyboardInput = document.addEventListener('keydown', (event) => console.log(event)).value
-const keyboard = document.getElementById('keyboard')
+let keyboardInput = document.addEventListener('keyboardEvent', (event) => console.log(event))
 const keys = document.querySelectorAll('keys')
+const row = document.getElementById('heading')
 
-
-function Worlde() {
+function worlde() {
     for (const word of words) {
-        // - else if 
         // if word is spelt correctly &  the letters are in the correct position  (grids should be green)
-        if (word.match(words) && keyboardInput === word && words) {
+        if (word.match(words) === keyboardInput && keyboardInput === word &&  word === words) {
             console.log(word)
-            //   boxes.style.backgroundColor= 'yellow'
-        } else if (word != words && keyboardInput != words && word) {
+            //   keys.style.backgroundColor= 'green' ( identify how to select just that single row )
+            // keys.textContent = keyboardInput
+        } else if (keyboardInput != word && word != words) {
             checkLetterPosition()
+        } else if (keyboardInput[i] != words.match(/a-z/gi)) {
+            CheckIfLetterIsInTheWord()
+        } else {
+            return keys.textContent = keyboardInput
         }
     }
     function checkLetterPosition() {
         // - else if 
-        // if a letter is is in a word but in the wrong place (grid colour yelllow)
-        for (let i = 0; i < keyboardInput.length; i++) {
-            if(keyboardInput[i] != words) {
-                keys.textContent = keyboardInput
+        // if a letter is  in a word but in the wrong place (grid colour yelllow)
+        for (let i = 0; keyboardInput.length; i++) {
+          if (keyboardInput != word.match(words)){
+              let results = keyboardInputi[i].value
            // keys.style.backgroundColor= 'yellow'
-          // keys.append(keyboardInput)
            //identify how to get the program to jump to the next row
 
             }
@@ -52,17 +54,38 @@ function Worlde() {
     function CheckIfLetterIsInTheWord() {
         // - else if 
         // if the letter is not in the word (grid color gray)
-        //   boxes[i].style.backgroundColor= 'gey'
+        for (let i = 0; keyboardInput.length; i++) {
+            
+        //   keys.style.backgroundColor= 'grey'
+        // 
     }
 
 }
+    }
 
 
-                                                            // questions //
+// // function remove () {
+// //    keys.textContent = " "
+// // }
+// // keybkeyboardInput.addEventListener('keypress',function() ) {
+// //     //     if (enter key ios pressed)
+//     // run wordle() function
+// // }
+                              
 
- // - how to assign a number to each individual grid
- // how to get the keyboard input to be added to the grid 1 column 1 and continues gowing left to right
+// // keybkeyboardInput.addEventListener('keypress',function() ) {
+//     //     //     if (delete is clicked)
+//         // run remove() function
+//     // }
 
- // for boxes[i] for loop (add input i++)
 
- // identify the index value for the grid boxes 
+//                                                                     // questions //
+
+//  // - how to assign a number to each individual grid
+//  // how to get the keyboardInput to be added to the grid 1 column 1 and continues gowing left to right
+
+//  //- check if im understanding the methods i have reviewed correctly
+
+//  // identify the index value for the grid boxes 
+
+//  // am i using the keyboard method correctly
