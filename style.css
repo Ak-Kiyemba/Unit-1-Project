@@ -68,38 +68,52 @@ img {
 #keyboard{
     display: flex;
     flex-wrap: wrap;
-    grid-template-columns: auto auto auto;
     justify-content: center;
     align-items: end;
     text-align: center;
     margin: 0 auto;
     width: 500px;
+    gap: 5px;
 
-    
-    
+}
+
+.keys {
+    display: grid;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 5px;
+    text-align: center;
+    align-content: end;
+    margin-bottom: 3px;
+    color: black;
+    border: 1px solid grey;
+    border-radius: 20%;
+    padding: 20px;
 }
 
 #row-1 {
     display: grid;
     display: flex;
     flex-direction: row;
-    align-items: end;
-    gap: 7px;
+    gap: 5px;
     text-align: center;
-    align-content: end;
     margin-bottom: 3px;
-}
+    color: grey;
+   
+} 
 
 #row-2{
     display: grid;
     display: flex;
     flex-direction: row;
     align-items: end;
-    gap: 7px;
+    gap: 5px;
     text-align: center;
     align-content: end; 
     margin-bottom: 3px;
     margin-left: 15px;
+    color: grey;
 }
 
 #row-3{
@@ -107,9 +121,13 @@ img {
     display: flex;
     flex-direction: row;
     align-items: end;
-    gap: 7px;
+    gap: 5px;
     text-align: center;
     align-content: end; 
     margin-left: 25px;
-}
+    color: grey;
+} */
 
+.grid-items {
+    
+}
