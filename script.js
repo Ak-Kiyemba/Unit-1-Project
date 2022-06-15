@@ -34,12 +34,12 @@ function checkingUserAction(e) {
     } else if (valueClikced === 'ENT') {
         let userWord = letters[0].textContent + letters[1].textContent + letters[2].textContent + letters[3].textContent + letters[4].textContent
     }
-    let userLetters = userWord.split('')
-
-    if (userLetters[0] === secretLetters[0]) {
-        letters[0].textContent = userLetters[0]
+    // let userLetters = userWord.split('')
+    // first one works 
+    if (valueClikced[0] === secretLetters[0]) {
+        letters[0].textContent = valueClikced[0]
         letters[0].style.backgroundColor = 'green'
-    } else if (secretLetters.includes(userLetters[0])) {
+    } else if (secretLetters.includes(valueClikced[0])) {
         letters[0].style.backgroundColor = 'yellow'
 
     } else {
@@ -88,11 +88,10 @@ function checkingUserAction(e) {
 
 
     } if (letterPosition > 5) {
-       for (let i = 0; i < allBoxes[rows].lenghth; i++){
+       for (let i = 0; i < allBoxes[row].lenghth; i++){
      letterPosition = 0
      allBoxes++
     rows[0].textContent = valueClicked
-    
     letterPosition++
 // }
 
@@ -103,8 +102,8 @@ function checkingUserAction(e) {
 
     }
 }
-
 }
+
 
 
 keys.forEach((key) => {
