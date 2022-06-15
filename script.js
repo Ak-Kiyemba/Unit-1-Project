@@ -18,7 +18,8 @@ const container = document.getElementById('container')
 
 let letterPosition = 0
 let rowNumber = 0
-const secretWord = 'SHEEN'
+let secretWord = 'SHEEN'
+let secretLetters = secretWord.split('')
 
 
 
@@ -31,81 +32,80 @@ function checkingUserAction(e) {
             letters[letterPosition].textContent = ' '
         }
     } else if (valueClikced === 'ENT') {
-        const userLetters = letters[0].textContent + letters[1].textContent + letters[2].textContent + letters[3].textContent + letters[4].textContent
+        let userWord = letters[0].textContent + letters[1].textContent + letters[2].textContent + letters[3].textContent + letters[4].textContent
+    }
+    let userLetters = userWord.split('')
+
+    if (userLetters[0] === secretLetters[0]) {
+        letters[0].textContent = userLetters[0]
+        letters[0].style.backgroundColor = 'green'
+    } else if (secretLetters.includes(userLetters[0])) {
+        letters[0].style.backgroundColor = 'yellow'
+
+    } else {
+        letters[0].style.backgroundColor = 'grey'
+    }
+
+    if (userLetters[1] === secretLetters[1]) {
+        letters[1].textContent = userLetters[1]
+        letters[1].style.backgroundColor = 'green'
+    } else if (secretLetters.includes(userLetters[1])) {
+        letters[1].style.backgroundColor = 'yellow'
+
+    } else {
+        letters[0].style.backgroundColor = 'grey'
+    }
+
+    if (userLetters[2] === secretLetters[2]) {
+        letters[2].textContent = userLetters[2]
+        letters[2].style.backgroundColor = 'green'
+    } else if (secretLetters.includes(userLetters[2])) {
+        letters[2].style.backgroundColor = 'yellow'
+
+    } else {
+        letters[2].style.backgroundColor = 'grey'
 
 
-        if (letters[0].textContent === secretWord[0]) {
-            letters[0].style.backgroundColor = 'green'
-        }
-        if (letters[1].textContent === secretWord[1]) {
-            letters[1].style.backgroundColor = 'green'
-        }
-        if (letters[2].textContent === secretWord[2]) {
-            letters[2].style.backgroundColor = 'green'
-        }
-        if (letters[3].textContent === secretWord[3]) {
+     if (userLetters[3] === secretLetters[3]) {
+            letters[3].textContent = userLetters[3]
             letters[3].style.backgroundColor = 'green'
-        }
-        if (letters[4].textContent === secretWord[4]) {
-            letters[4].style.backgroundColor = 'green'
-        }
-
-        // yellow is for when the letter is in the wrong location
-        if (letters[0].textContent != secretWord[0]) {
-            letters[0].style.backgroundColor = 'yellow'
-        }
-        if (letters[1].textContent != secretWord[1]) {
-            letters[1].style.backgroundColor = 'yellow'
-        }
-        if (letters[2].textContent != secretWord[2]) {
-            letters[2].style.backgroundColor = 'yellow'
-        }
-        if (letters[3].textContent != secretWord[3]) {
+    } else if (secretLetters.includes(userLetters[3])) {
             letters[3].style.backgroundColor = 'yellow'
-        }
-        if (letters[4].textContent != secretWord[4]) {
-            letters[4].style.backgroundColor = 'yellow'
-        }
-        // attempting to change the background to grey if word is not in word
 
-
-        if (letterPosition[0].textContent != secretWord[0]) {
-            letterPosition.style.backgroundColor = 'grey'
-        }
-        if (letters[1].textContent != secretWord[1]) {
-            letters[1].style.backgroundColor = 'grey'
-        }
-        if (letters[2].textContent != secretWord[2]) {
-            letters[2].style.backgroundColor = 'grey'
-        }
-        if (letters[3].textContent != secretWord[3]) {
+    } else {
             letters[3].style.backgroundColor = 'grey'
-        }
-        if (letters[4].textContent != secretWord[4]) {
+    }
+
+    if (userLetters[4] === secretLetters[4]) {
+            letters[4].textContent = userLetters[4]
+            letters[4].style.backgroundColor = 'green'
+    } else if (secretLetters.includes(userLetters[4])) {
+            letters[4].style.backgroundColor = 'yellow'
+
+    } else {
             letters[4].style.backgroundColor = 'grey'
-        }
+    }
 
 
+    } if (letterPosition > 5) {
+       for (let i = 0; i < allBoxes[rows].lenghth; i++){
+     letterPosition = 0
+     allBoxes++
+    rows[0].textContent = valueClicked
+    
+    letterPosition++
+// }
 
+// for(const  i of rows ){
+    // if(letterPosition < 5) {
+        // row++
+        // letterPosition = 0
 
-    } else if (letterPosition < 5) {
-        letters[letterPosition].textContent = valueClikced
-        letterPosition++
-    } else if (letterPosition = 5 && valueClikced.value != secretWord) {
-        section2[letterPosition].textContent = valueClikced
-        letterPosition++
     }
 }
 
-function winningConditions() {
-    // if they guess correctly 
-    if (allBoxes[rows].value == secretWord) {
-        body.remove(container)
-        alert("you uncovered the secretword 'SHEEN', GAME OVER")
-    } else if (section5[letterPosition] == 5 && valueClikced.value != secretWord) {
-        alert("game over! the secret word was 'SHEEN'")
-    }
 }
+
 
 keys.forEach((key) => {
     key.addEventListener('click', checkingUserAction)
