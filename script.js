@@ -2,44 +2,23 @@ let words = ["aback", "abase", "abate", "abbey", "abbot", "abhor", "abide", "abl
 
 
 
-// 1- when the user presses the enter button the program should run
-// 2-when the user presses the backspace jey the letter should be removed from the grid 
-// 3- loop over the alpaphet and add them to the boxes
-// 4-  after you press eenter the box should move to the next line of boxes 
-// 5-  use match(/a-z/g/) to check if the letters are present and then check if they're in the right spot 
-// 6-  run the program when the user presses the enter key 
-// 7- receive information from keyboard input 
-
-//- Array that shows userinput 
-// for loop over rows and i++ wilst also adding content in each box
-
-1.  // keys interact with rows
-2. // pushing into user array 
-3. // 
-
-
-
-let rowNumber = 0
-const secretWord = 'SHEEN'
-
 const body = document.getElementById('body')
 const heading = document.getElementById('heading')
-const boxes = document.querySelectorAll('boxes')
-// let keyboardInput = document.addEventListener('keyboardEvent', (event) => console.log(event))
+const rows = document.querySelectorAll('.rows')
 const keys = document.querySelectorAll('.keys')
-const row = document.getElementById('heading')
 const section1 = document.getElementById('section-1')
+const section2 = document.getElementById('section-2')
+const section3 = document.getElementById('section-3')
+const section4 = document.getElementById('section-4')
+const section5 = document.getElementById('section-5')
+const allBoxes = document.querySelectorAll('.letterBox')
 const letters = section1.querySelectorAll('div')
+const container = document.getElementById('container')
+
+
 let letterPosition = 0
-
-
-
-console.log(keys)
-
-
-function Rows() {
-
-}
+let rowNumber = 0
+const secretWord = 'SHEEN'
 
 
 
@@ -54,7 +33,7 @@ function checkingUserAction(e) {
     } else if (valueClikced === 'ENT') {
         const userLetters = letters[0].textContent + letters[1].textContent + letters[2].textContent + letters[3].textContent + letters[4].textContent
 
-        // loop this section
+
         if (letters[0].textContent === secretWord[0]) {
             letters[0].style.backgroundColor = 'green'
         }
@@ -71,7 +50,7 @@ function checkingUserAction(e) {
             letters[4].style.backgroundColor = 'green'
         }
 
-
+        // yellow is for when the letter is in the wrong location
         if (letters[0].textContent != secretWord[0]) {
             letters[0].style.backgroundColor = 'yellow'
         }
@@ -87,39 +66,53 @@ function checkingUserAction(e) {
         if (letters[4].textContent != secretWord[4]) {
             letters[4].style.backgroundColor = 'yellow'
         }
+        // attempting to change the background to grey if word is not in word
 
 
-        
+        if (letterPosition[0].textContent != secretWord[0]) {
+            letterPosition.style.backgroundColor = 'grey'
+        }
+        if (letters[1].textContent != secretWord[1]) {
+            letters[1].style.backgroundColor = 'grey'
+        }
+        if (letters[2].textContent != secretWord[2]) {
+            letters[2].style.backgroundColor = 'grey'
+        }
+        if (letters[3].textContent != secretWord[3]) {
+            letters[3].style.backgroundColor = 'grey'
+        }
+        if (letters[4].textContent != secretWord[4]) {
+            letters[4].style.backgroundColor = 'grey'
+        }
 
-       
+
+
 
     } else if (letterPosition < 5) {
         letters[letterPosition].textContent = valueClikced
         letterPosition++
+    } else if (letterPosition = 5 && valueClikced.value != secretWord) {
+        section2[letterPosition].textContent = valueClikced
+        letterPosition++
     }
 }
 
-
-
-// for (const word of words) {
-//     // if word is spelt correctly &  the letters are in the correct position  (grids should be green)
-//     if (word.match(words) === keyboardInput && keyboardInput === word &&  word === words) {
-//         console.log(word)
-//         //   keys.style.backgroundColor= 'green' ( identify how to select just that single row )
-//         // keys.textContent = keyboardInput
-//     } else if (keyboardInput != word && word != words) {
-//         checkLetterPosition()
-//     } else if (keyboardInput[i] != words.match(/a-z/gi)) {
-//         CheckIfLetterIsInTheWord()
-//     } else {
-//         return keys.textContent = keyboardInput
-//     }
-// }
-// }
-
+function winningConditions() {
+    // if they guess correctly 
+    if (allBoxes[rows].value == secretWord) {
+        body.remove(container)
+        alert("you uncovered the secretword 'SHEEN', GAME OVER")
+    } else if (section5[letterPosition] == 5 && valueClikced.value != secretWord) {
+        alert("game over! the secret word was 'SHEEN'")
+    }
+}
 
 keys.forEach((key) => {
     key.addEventListener('click', checkingUserAction)
 })
 
 
+//1.  get the program to continue on to the next line 
+// 2. get the yellow background to work 
+// 3. game logic how to get user input and compare it with words array
+// 4 integrate so that it choosing from the word array

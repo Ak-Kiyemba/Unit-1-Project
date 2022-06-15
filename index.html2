@@ -1,5 +1,1 @@
- <!-- or (let i =0; i < words.length) {
-    if(words[i] && keyboardInput != words) {
-         boxes.style.backgroundColor = 'grey'
-}
-
+ 
