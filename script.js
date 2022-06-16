@@ -88,11 +88,12 @@ function checkingUserAction(e) {
 
 
     } if (letterPosition > 5) {
-       for (let i = 0; i < allBoxes[row].lenghth; i++){
-     letterPosition = 0
-     allBoxes++
-    rows[0].textContent = valueClicked
-    letterPosition++
+       for (let i = 0; i < allBoxes.lenghth; i++){
+        if(allBoxes[i].textContent === secretLetters){}
+        // prompt('game over you guess the secret word "SHEEN")
+       }
+    }
+}
 // }
 
 // for(const  i of rows ){
@@ -100,9 +101,6 @@ function checkingUserAction(e) {
         // row++
         // letterPosition = 0
 
-    }
-}
-}
 
 
 
