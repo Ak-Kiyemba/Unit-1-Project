@@ -35,7 +35,7 @@ function checkingUserAction(e) {
         let userWord = letters[0].textContent + letters[1].textContent + letters[2].textContent + letters[3].textContent + letters[4].textContent
     }
     // let userLetters = userWord.split('')
-    // first one works 
+    // first one works
     if (valueClikced[0] === secretLetters[0]) {
         letters[0].textContent = valueClikced[0]
         letters[0].style.backgroundColor = 'green'
