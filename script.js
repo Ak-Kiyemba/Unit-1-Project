@@ -6,22 +6,17 @@ const body = document.getElementById('body')
 const heading = document.getElementById('heading')
 const rows = document.querySelectorAll('.rows')
 const keys = document.querySelectorAll('.keys')
-const section1 = document.getElementById('section-1')
-const section2 = document.getElementById('section-2')
-const section3 = document.getElementById('section-3')
-const section4 = document.getElementById('section-4')
-const section5 = document.getElementById('section-5')
 const allBoxes = document.querySelectorAll('.letterBox')
-const box = section1.querySelectorAll('div')
+
 const container = document.getElementById('container')
 
 
 let letterPosition = 0
-let rowNumber = 0
+let rowNumber = 1
 let secretWord = 'SHEEN'
 let secretLetters = secretWord.split('')
 let enteredLetter = []
-
+let box = document.getElementById(`section-${rowNumber}`).querySelectorAll('div')
 
 function checkingUserAction(e) {
     let userWord = ''
@@ -52,7 +47,7 @@ box[i].textContent = enteredLetter[i]
 }
 
 function checkLetters(word) {
-    
+    const box = document.getElementById(`section-${rowNumber}`).querySelectorAll('div')
     const valueClicked = word.split('')
     console.log(valueClicked[0])
     console.log(secretLetters[0])
@@ -68,6 +63,11 @@ function checkLetters(word) {
             box[i].style.backgroundColor = 'grey'
         }
     }
+
+enteredLetter = []
+rowNumber++
+// box = document.getElementById(`section-${rowNumber++}`).querySelectorAll('div')
+
 
 //     } else { 
 //         winningWord()
