@@ -12,7 +12,7 @@ const section3 = document.getElementById('section-3')
 const section4 = document.getElementById('section-4')
 const section5 = document.getElementById('section-5')
 const allBoxes = document.querySelectorAll('.letterBox')
-const letters = section1.querySelectorAll('div')
+const box = section1.querySelectorAll('div')
 const container = document.getElementById('container')
 
 
@@ -20,96 +20,81 @@ let letterPosition = 0
 let rowNumber = 0
 let secretWord = 'SHEEN'
 let secretLetters = secretWord.split('')
-
+let enteredLetter = []
 
 
 function checkingUserAction(e) {
-    const valueClikced = e.target.innerText.toUpperCase()
-    console.log(valueClikced)
-    if (valueClikced === 'DEL') {
+    let userWord = ''
+    const valueClicked = e.target.innerText.toUpperCase()
+    
+   
+    if (valueClicked.length === 1 ) {
+        enteredLetter.push(valueClicked)
+    }
+    console.log(enteredLetter.length)
+    if (valueClicked === 'DEL') {
         if (letterPosition > 0) {
             letterPosition--
-            letters[letterPosition].textContent = ' '
+            box[letterPosition].textContent = ' '
         }
-    } else if (valueClikced === 'ENT') {
-        let userWord = letters[0].textContent + letters[1].textContent + letters[2].textContent + letters[3].textContent + letters[4].textContent
+    } else if (valueClicked === 'ENT' && enteredLetter.length == 5) {
+        checkLetters(box[0].textContent + box[1].textContent + box[2].textContent + box[3].textContent + box[4].textContent)
+      
     }
-    // let userLetters = userWord.split('')
-    // first one works
-    if (valueClikced[0] === secretLetters[0]) {
-        letters[0].textContent = valueClikced[0]
-        letters[0].style.backgroundColor = 'green'
-    } else if (secretLetters.includes(valueClikced[0])) {
-        letters[0].style.backgroundColor = 'yellow'
-
-    } else {
-        letters[0].style.backgroundColor = 'grey'
-    }
-
-    if (userLetters[1] === secretLetters[1]) {
-        letters[1].textContent = userLetters[1]
-        letters[1].style.backgroundColor = 'green'
-    } else if (secretLetters.includes(userLetters[1])) {
-        letters[1].style.backgroundColor = 'yellow'
-
-    } else {
-        letters[0].style.backgroundColor = 'grey'
-    }
-
-    if (userLetters[2] === secretLetters[2]) {
-        letters[2].textContent = userLetters[2]
-        letters[2].style.backgroundColor = 'green'
-    } else if (secretLetters.includes(userLetters[2])) {
-        letters[2].style.backgroundColor = 'yellow'
-
-    } else {
-        letters[2].style.backgroundColor = 'grey'
-
-
-     if (userLetters[3] === secretLetters[3]) {
-            letters[3].textContent = userLetters[3]
-            letters[3].style.backgroundColor = 'green'
-    } else if (secretLetters.includes(userLetters[3])) {
-            letters[3].style.backgroundColor = 'yellow'
-
-    } else {
-            letters[3].style.backgroundColor = 'grey'
-    }
-
-    if (userLetters[4] === secretLetters[4]) {
-            letters[4].textContent = userLetters[4]
-            letters[4].style.backgroundColor = 'green'
-    } else if (secretLetters.includes(userLetters[4])) {
-            letters[4].style.backgroundColor = 'yellow'
-
-    } else {
-            letters[4].style.backgroundColor = 'grey'
-    }
-
-
-    } if (letterPosition > 5) {
-       for (let i = 0; i < allBoxes.lenghth; i++){
-        if(allBoxes[i].textContent === secretLetters){}
-        // prompt('game over you guess the secret word "SHEEN")
-       }
-    }
+    let userLetters = userWord
+    assignInnerText()
 }
-// }
 
-// for(const  i of rows ){
-    // if(letterPosition < 5) {
-        // row++
-        // letterPosition = 0
+function assignInnerText () {
+for (let i = 0; i < box.length; i++){
+box[i].textContent = enteredLetter[i]
+}
+}
+
+function checkLetters(word) {
+    
+    const valueClicked = word.split('')
+    console.log(valueClicked[0])
+    console.log(secretLetters[0])
+    // 
+    for (let i = 0; valueClicked.length; i++) {
+        if(valueClicked[i] === secretLetters[i]) {
+            box[i].style.backgroundColor = 'green'
+        } 
+        if ( secretLetters.includes(valueClicked[i]) && valueClicked[i] != secretLetters[i]){
+            box[i].style.backgroundColor = 'yellow'
+        } 
+        if ( !secretLetters.includes(valueClicked[i])){
+            box[i].style.backgroundColor = 'grey'
+        }
+    }
+
+//     } else { 
+//         winningWord()
 
 
+//         function winningWord() {
+//             if (enteredLetter === secretLetters) {
+//                 alert('You picked the winning word, game over!!')
+//             } else {
+//                 for (let i = 0; i < enteredLetter.length; i++) {
+//                     if (enteredLetter[i] === secretLetters[i]) {
+//                         letters[i].style.backgroundColor = 'green'
+//                     } else if (enteredLetter[i].find(secretLetters[i]) != false) {
+//                         letters[i].style.backgroundColor = 'yellow'
 
+//                     } else {
+//                         letters[i].style.backgroundColor = 'grey'
+//                     }
 
+//                 }
+
+//             }
+
+//     }
+//     }
+}
 keys.forEach((key) => {
     key.addEventListener('click', checkingUserAction)
 })
 
-
-//1.  get the program to continue on to the next line 
-// 2. get the yellow background to work 
-// 3. game logic how to get user input and compare it with words array
-// 4 integrate so that it choosing from the word array
