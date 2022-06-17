@@ -27,13 +27,16 @@ function checkingUserAction(e) {
     if (valueClicked.length === 1) {
         enteredLetter.push(valueClicked)
     }
-// for loop but backwards
-// currently removes all of them not the one we want 
+
     if (valueClicked === 'DEL') {
-        
-        for (let i = 0; i < box.length; i++) {
-           box[i].textContent = enteredLetter[i].textContent = ''  
-         
+        enteredLetter.pop()
+        // console.log(box)
+        // console.log(box[enteredLetter.length])
+        // console.log(enteredLetter.length)
+        // console.log(enteredLetter)
+
+       if (box[enteredLetter.length]) {
+        box[enteredLetter.length].textContent = ''  
         }
     } else if (valueClicked === 'ENT' && enteredLetter.length == 5) {
         checkLetters(box[0].textContent + box[1].textContent + box[2].textContent + box[3].textContent + box[4].textContent)
@@ -53,8 +56,7 @@ function assignInnerText() {
 function checkLetters(word) {
     const box = document.getElementById(`section-${rowNumber}`).querySelectorAll('div')
     const valueClicked = word.split('')
-    console.log(valueClicked[0])
-    console.log(secretLetters[0])
+   
 
     for (let i = 0; i < valueClicked.length; i++) {
         if (valueClicked[i] === secretLetters[i]) {
