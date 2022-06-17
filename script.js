@@ -19,6 +19,7 @@ let enteredLetter = []
 let box = document.getElementById(`section-${rowNumber}`).querySelectorAll('div')
 
 function checkingUserAction(e) {
+    const box = document.getElementById(`section-${rowNumber}`).querySelectorAll('div')
     let userWord = ''
     const valueClicked = e.target.innerText.toUpperCase()
     
@@ -41,6 +42,7 @@ function checkingUserAction(e) {
 }
 
 function assignInnerText () {
+const box = document.getElementById(`section-${rowNumber}`).querySelectorAll('div')
 for (let i = 0; i < box.length; i++){
 box[i].textContent = enteredLetter[i]
 }
@@ -52,7 +54,7 @@ function checkLetters(word) {
     console.log(valueClicked[0])
     console.log(secretLetters[0])
 
-    for (let i = 0; valueClicked.length; i++) {
+    for (let i = 0; i < valueClicked.length; i++) {
         if(valueClicked[i] === secretLetters[i]) {
             box[i].style.backgroundColor = 'green'
         } 
