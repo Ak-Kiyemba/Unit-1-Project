@@ -30,19 +30,15 @@ function checkingUserAction(e) {
 
     if (valueClicked === 'DEL') {
         enteredLetter.pop()
-        // console.log(box)
-        // console.log(box[enteredLetter.length])
-        // console.log(enteredLetter.length)
-        // console.log(enteredLetter)
-
-       if (box[enteredLetter.length]) {
-        box[enteredLetter.length].textContent = ''  
+        if (box[enteredLetter.length]) {
+            box[enteredLetter.length].textContent = ''
         }
     } else if (valueClicked === 'ENT' && enteredLetter.length == 5) {
         checkLetters(box[0].textContent + box[1].textContent + box[2].textContent + box[3].textContent + box[4].textContent)
 
+
     }
-    let userLetters = userWord
+
     assignInnerText()
 }
 
@@ -56,7 +52,7 @@ function assignInnerText() {
 function checkLetters(word) {
     const box = document.getElementById(`section-${rowNumber}`).querySelectorAll('div')
     const valueClicked = word.split('')
-   
+
 
     for (let i = 0; i < valueClicked.length; i++) {
         if (valueClicked[i] === secretLetters[i]) {
@@ -68,22 +64,30 @@ function checkLetters(word) {
         if (!secretLetters.includes(valueClicked[i])) {
             box[i].style.backgroundColor = 'grey'
         }
+
     }
 
+    function winningWord() {
+        const winningWord = secretLetters.join("");
+        const enteredWord = enteredLetter.join("");
+
+        if (winningWord === enteredWord) {
+            alert('You picked the correct word!')
+
+        } else if (rowNumber === 5 && enteredLetter.length == 5) {
+            alert('the secret word is SHEEN, you have run out attempts')
+        }
+
+    }
+    winningWord()
     enteredLetter = []
     rowNumber++
-    // box = document.getElementById(`section-${rowNumber++}`).querySelectorAll('div')
 
 
-
-    //         function winningWord () {
-    //          if(enteredLetters === secrtetLetters){
-    //          alert('You picked the correct letter, game over)
-    //          } else if box  == 5 && enteredLetter.length == 5 && valuedclicked === "ENT"){
-     //           alert('the secret word is SHEEN', you have run out attempts)
-   // }
 
 }
+
+
 
 keys.forEach((key) => {
     key.addEventListener('click', checkingUserAction)

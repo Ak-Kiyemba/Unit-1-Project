@@ -6,16 +6,18 @@
 
 
 }
-    #heading {
-        width:100%;
-        display: flex;
-        justify-content: center;
-       
-    }
 
-    nav{
-        display: inline;
-    }
+#heading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+nav {
+    display: inline;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -26,28 +28,37 @@ ul {
     justify-content: center;
     margin-top: 3px;
 
-  }
-  
-  li {
-justify-content: center;
-  }
-  
-  li a {
+}
+
+li {
+    justify-content: center;
+    display: inline;
+}
+
+li a {
     display: block;
     color: white;
     text-align: center;
     padding: 0 30px;
     text-decoration: none;
-  }
-.pic{
-    margin-right: 0px;
-  
 }
+
+.pic {
+    position: absolute;
+    left: 30px;
+
+}
+
+.pic2 {
+    position: absolute;
+    right: 30px;
+}
+
 h1 {
     display: inline;
     text-align: center;
     padding: 0 200px;
-   
+
 }
 
 hr {
@@ -59,9 +70,9 @@ hr {
 
 img {
     display: flex;
-    width: 25px;
-    height: 25px;
-    
+    width: 15px;
+    height: 15px;
+
 
 }
 
@@ -69,12 +80,12 @@ img {
 #container {
     display: grid;
     flex-direction: row;
-    grid-template-rows: auto auto auto auto auto auto ;
+    grid-template-rows: auto auto auto auto auto auto;
     justify-content: center;
     height: 50px;
-   gap: 5px;
+    gap: 5px;
     margin-bottom: 600px;
-   
+
 
 }
 
@@ -83,8 +94,8 @@ img {
 }
 
 .rows {
-   display: flex;
-   justify-content: center;
+    display: flex;
+    justify-content: center;
     background-color: white;
     padding: 10px;
     font-size: 20px;
@@ -92,7 +103,7 @@ img {
     border: 2px solid grey;
     height: 30px;
     width: 40px;
-  gap: 20px;
+    gap: 20px;
 }
 
 #keyboard {
