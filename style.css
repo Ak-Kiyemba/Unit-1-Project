@@ -29,7 +29,7 @@ ul {
   }
   
   li {
- padding: 0 120px;
+ padding: 0 100px;
  margin: 0;
   }
   
@@ -46,12 +46,15 @@ ul {
 }
 h1 {
     display: inline;
+    text-align: center;
+    padding: 0 200px;
    
 }
 
 hr {
     color: grey;
     margin-top: 0;
+    width: 100%;
 }
 
 
@@ -70,7 +73,7 @@ img {
     grid-template-rows: auto auto auto auto auto auto ;
     justify-content: center;
     height: 50px;
-    gap: 7px;
+   gap: 5px;
     margin-bottom: 600px;
    
 
@@ -90,6 +93,7 @@ img {
     border: 2px solid grey;
     height: 30px;
     width: 40px;
+  gap: 20px;
 }
 
 #keyboard {

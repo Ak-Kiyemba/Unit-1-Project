@@ -30,10 +30,11 @@ function checkingUserAction(e) {
 // for loop but backwards
 // currently removes all of them not the one we want 
     if (valueClicked === 'DEL') {
-        for (let i = 0; i < box.length; i++) {
-            box[i].textContent = enteredLetter[i].textContent = ''
-        }
         
+        for (let i = 0; i < box.length; i++) {
+           box[i].textContent = enteredLetter[i].textContent = ''  
+         
+        }
     } else if (valueClicked === 'ENT' && enteredLetter.length == 5) {
         checkLetters(box[0].textContent + box[1].textContent + box[2].textContent + box[3].textContent + box[4].textContent)
 
@@ -76,7 +77,7 @@ function checkLetters(word) {
     //         function winningWord () {
     //          if(enteredLetters === secrtetLetters){
     //          alert('You picked the correct letter, game over)
-    //          } else if box  == 5 && enteredLetter.length == 5){
+    //          } else if box  == 5 && enteredLetter.length == 5 && valuedclicked === "ENT"){
      //           alert('the secret word is SHEEN', you have run out attempts)
    // }
 
