@@ -22,30 +22,31 @@ function checkingUserAction(e) {
     const box = document.getElementById(`section-${rowNumber}`).querySelectorAll('div')
     let userWord = ''
     const valueClicked = e.target.innerText.toUpperCase()
-    
-   
-    if (valueClicked.length === 1 ) {
+
+
+    if (valueClicked.length === 1) {
         enteredLetter.push(valueClicked)
     }
-    console.log(enteredLetter.length)
+// for loop but backwards
+// currently removes all of them not the one we want 
     if (valueClicked === 'DEL') {
-        if (letterPosition > 0) {
-            letterPosition--
-            box[letterPosition].textContent = ' '
+        for (let i = 0; i < box.length; i++) {
+            box[i].textContent = enteredLetter[i].textContent = ''
         }
+        
     } else if (valueClicked === 'ENT' && enteredLetter.length == 5) {
         checkLetters(box[0].textContent + box[1].textContent + box[2].textContent + box[3].textContent + box[4].textContent)
-      
+
     }
     let userLetters = userWord
     assignInnerText()
 }
 
-function assignInnerText () {
-const box = document.getElementById(`section-${rowNumber}`).querySelectorAll('div')
-for (let i = 0; i < box.length; i++){
-box[i].textContent = enteredLetter[i]
-}
+function assignInnerText() {
+    const box = document.getElementById(`section-${rowNumber}`).querySelectorAll('div')
+    for (let i = 0; i < box.length; i++) {
+        box[i].textContent = enteredLetter[i]
+    }
 }
 
 function checkLetters(word) {
@@ -55,47 +56,32 @@ function checkLetters(word) {
     console.log(secretLetters[0])
 
     for (let i = 0; i < valueClicked.length; i++) {
-        if(valueClicked[i] === secretLetters[i]) {
+        if (valueClicked[i] === secretLetters[i]) {
             box[i].style.backgroundColor = 'green'
-        } 
-        if ( secretLetters.includes(valueClicked[i]) && valueClicked[i] != secretLetters[i]){
+        }
+        if (secretLetters.includes(valueClicked[i]) && valueClicked[i] != secretLetters[i]) {
             box[i].style.backgroundColor = 'yellow'
-        } 
-        if ( !secretLetters.includes(valueClicked[i])){
+        }
+        if (!secretLetters.includes(valueClicked[i])) {
             box[i].style.backgroundColor = 'grey'
         }
     }
 
-enteredLetter = []
-rowNumber++
-// box = document.getElementById(`section-${rowNumber++}`).querySelectorAll('div')
+    enteredLetter = []
+    rowNumber++
+    // box = document.getElementById(`section-${rowNumber++}`).querySelectorAll('div')
 
 
-//     } else { 
-//         winningWord()
 
+    //         function winningWord () {
+    //          if(enteredLetters === secrtetLetters){
+    //          alert('You picked the correct letter, game over)
+    //          } else if box  == 5 && enteredLetter.length == 5){
+     //           alert('the secret word is SHEEN', you have run out attempts)
+   // }
 
-//         function winningWord() {
-//             if (enteredLetter === secretLetters) {
-//                 alert('You picked the winning word, game over!!')
-//             } else {
-//                 for (let i = 0; i < enteredLetter.length; i++) {
-//                     if (enteredLetter[i] === secretLetters[i]) {
-//                         letters[i].style.backgroundColor = 'green'
-//                     } else if (enteredLetter[i].find(secretLetters[i]) != false) {
-//                         letters[i].style.backgroundColor = 'yellow'
-
-//                     } else {
-//                         letters[i].style.backgroundColor = 'grey'
-//                     }
-
-//                 }
-
-//             }
-
-//     }
-//     }
 }
+
 keys.forEach((key) => {
     key.addEventListener('click', checkingUserAction)
 })
