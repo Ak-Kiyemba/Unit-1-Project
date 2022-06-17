@@ -1,7 +1,0 @@
-  //     letters[0].style.backgroundColor = 'green'
-    // } else if (secretLetters.includes(newarray[0])) {
-    //     letters[0].style.backgroundColor = 'yellow'
-
-    // } else {
-    //     letters[0].style.backgroundColor = 'grey'
-    // }

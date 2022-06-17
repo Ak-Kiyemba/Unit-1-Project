@@ -51,7 +51,7 @@ function checkLetters(word) {
     const valueClicked = word.split('')
     console.log(valueClicked[0])
     console.log(secretLetters[0])
-    // 
+
     for (let i = 0; valueClicked.length; i++) {
         if(valueClicked[i] === secretLetters[i]) {
             box[i].style.backgroundColor = 'green'
