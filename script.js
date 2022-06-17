@@ -11,7 +11,7 @@ const allBoxes = document.querySelectorAll('.letterBox')
 const container = document.getElementById('container')
 
 
-let letterPosition = 0
+
 let rowNumber = 1
 let secretWord = 'SHEEN'
 let secretLetters = secretWord.split('')
@@ -33,11 +33,10 @@ function checkingUserAction(e) {
         if (box[enteredLetter.length]) {
             box[enteredLetter.length].textContent = ''
         }
+
     } else if (valueClicked === 'ENT' && enteredLetter.length == 5) {
         checkLetters(box[0].textContent + box[1].textContent + box[2].textContent + box[3].textContent + box[4].textContent)
-
-
-    }
+     } 
 
     assignInnerText()
 }
@@ -63,16 +62,17 @@ function checkLetters(word) {
         }
         if (!secretLetters.includes(valueClicked[i])) {
             box[i].style.backgroundColor = 'grey'
+
         }
 
     }
 
     function winningWord() {
         const winningWord = secretLetters.join("");
-        const enteredWord = enteredLetter.join("");
+        const userInput = enteredLetter.join("");
 
-        if (winningWord === enteredWord) {
-            alert('You picked the correct word!')
+        if (winningWord === userInput) {
+            alert('You picked the correct word!, Game Over Champ')
 
         } else if (rowNumber === 5 && enteredLetter.length == 5) {
             alert('the secret word is SHEEN, you have run out attempts')
